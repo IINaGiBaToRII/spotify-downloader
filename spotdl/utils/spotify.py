@@ -69,6 +69,7 @@ class Singleton(type):
         use_cache_file: bool = False,
         auth_token: Optional[str] = None,
         cache_path: Optional[str] = None,
+        proxies: Optional[dict] = None,
     ) -> "Singleton":
         """
         Initializes the SpotifyClient.
@@ -127,6 +128,7 @@ class Singleton(type):
             auth=auth_token,
             auth_manager=credential_manager,
             status_forcelist=(429, 500, 502, 503, 504, 404),
+            proxies=proxies,
         )
 
         # Return instance
