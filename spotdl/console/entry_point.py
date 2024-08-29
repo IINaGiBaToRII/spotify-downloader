@@ -104,7 +104,7 @@ def entry_point():
             )
 
     # Initialize spotify client
-    SpotifyClient.init(**spotify_settings)
+    SpotifyClient.init(proxies={"http": arguments.proxy, "https":arguments.proxy}, **spotify_settings)
     spotify_client = SpotifyClient()
 
     # If the application is frozen start web ui
